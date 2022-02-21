@@ -9,12 +9,15 @@ public class EmpWageBuilder {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Builder Program For Multiple companies");
-        int empHrs = 0;
-        int empWage = 0;
-        int totalWorkingDays=0;
-        int totalEmpHrs=0;
-        int totalEmpWage = 0;
-        while (totalEmpHrs <= MAX_WORKING_HRS  && totalWorkingDays < MAX_WORKING_DAYS) {
+        computeEmpWage();
+    }
+
+    public static int computeEmpWage() {
+        int empHrs ;
+        int totalWorkingDays = 0;
+        int totalEmpHrs = 0;
+
+        while (totalEmpHrs <= MAX_WORKING_HRS && totalWorkingDays < MAX_WORKING_DAYS) {
             totalWorkingDays++;
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
             switch (empCheck) {
@@ -27,11 +30,12 @@ public class EmpWageBuilder {
                 default:
                     empHrs = 0;
             }
-            totalEmpHrs+=empHrs;
+            totalEmpHrs += empHrs;
             System.out.println("Day# " + totalWorkingDays + " Emp Hrs: " + empHrs);
             //totalEmpWage += empWage;
         }
-        totalEmpWage=totalEmpHrs* EMP_RATE_PER_HOUR;
+        int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
         System.out.println("Total Emp Wage for 20 days: " + totalEmpWage);
+        return totalEmpWage;
     }
 }
